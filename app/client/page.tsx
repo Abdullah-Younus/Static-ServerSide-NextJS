@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 
 type Book = {
@@ -5,8 +6,7 @@ type Book = {
     name: string;
     type: string;
     available: boolean;
-};
-
+}
 
 async function getBooks() {
     const books = await fetch('https://simple-books-api.glitch.me/books');
@@ -14,18 +14,12 @@ async function getBooks() {
     return data;
 }
 
-async function staticPage() {
+async function page() {
     const books = await getBooks();
+
     return (
-        <div>
-            <h1>Static Page</h1>
-            {books.map((book: Book) => (
-                <ul key={book.id}>
-                    <li>{book.name} - {book.type} - {book.available}</li>
-                </ul>
-            ))}
-        </div>
+        <div>Client</div>
     )
 }
 
-export default staticPage;
+export default page
